@@ -28,7 +28,7 @@ jobs:
         id: fmt
         working-directory: ./terraform
         run: terraform fmt -check
-        continue-one-error: true
+        continue-on-error: true
 
       - name: Terraform init
         id: init
@@ -44,7 +44,7 @@ jobs:
         id: plan
         working-directory: ./terraform
         run: terraform plan -no-color
-        continue-one-error: true
+        continue-on-error: true
       
       - name: Comment
         uses: actions/github-script@v3.0.0
