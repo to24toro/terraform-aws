@@ -3,7 +3,7 @@
 # -----------------------------------
 resource "aws_s3_bucket" "terraform_test" {
   bucket = "test-bucket-20220918"
-  acl = "private"
+  acl    = "private"
   versioning {
     enabled = true
   }
