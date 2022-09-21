@@ -6,7 +6,7 @@ terraform {
     }
   }
   # backend "s3" {
-  #   bucket  = "terraform-state-bucket"
+  #   bucket  = "terraform-state-bucket-bot-20220930"
   #   region  = "ap-northeast-1"
   #   key     = "terraform.tfstate"
   #   encrypt = true
