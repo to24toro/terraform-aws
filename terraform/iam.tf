@@ -24,7 +24,7 @@ data "aws_iam_policy_document" "assume_policy" {
     actions = ["sts:Assumerole"]
     principals {
       type        = "AWS"
-      identifiers = "arn:aws:iam::${local.AWS_USERINFO.AWS_ACCOUNT_ID}:root"
+      identifiers = ["arn:aws:iam::${local.AWS_USERINFO.AWS_ACCOUNT_ID}:root"]
     }
   }
 }
