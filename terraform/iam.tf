@@ -23,8 +23,8 @@ data "aws_iam_policy_document" "assume_policy" {
     effect  = "Allow"
     actions = ["sts:Assumerole"]
     principals {
-      type       = "AWS"
-      identifiers = "${local.AWS_USERINFO.AWS_ACCOUNT_ID}"
+      type        = "AWS"
+      identifiers = "arn:aws:iam::${local.AWS_USERINFO.AWS_ACCOUNT_ID}:root"
     }
   }
 }
