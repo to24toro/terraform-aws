@@ -10,6 +10,14 @@ resource "aws_iam_role" "iam_role_dynamodb_purchase_table" {
 
 # IAM policy
 
+resource "aws_iam_policy" "iam_policy_dynamodb_purchase_table" {
+  name = "dynamodb_purchase_table"
+
+  policy = data.aws_iam_policy_document.iam_policy_dynamodb_purchase_table.json
+}
+
+# IAM policy document
+
 data "aws_iam_policy_document" "iam_policy_dynamodb_purchase_table" {
   statement {
     effect    = "Allow"
@@ -22,5 +30,5 @@ data "aws_iam_policy_document" "iam_policy_dynamodb_purchase_table" {
 
 resource "aws_iam_role_policy_attachment" "iam_attachment_dynamodb_purchase_table" {
   role       = aws_iam_role.iam_role_dynamodb_purchase_table.name
-  policy_arn = data.aws_iam_policy_document.iam_policy_dynamodb_purchase_table.arn
+  policy_arn = aws_iam_policy.iam_policy_dynamodb_purchase_table.arn
 }
