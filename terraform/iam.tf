@@ -16,9 +16,6 @@ data "aws_iam_policy_document" "iam_policy_dynamodb_purchase_table" {
     actions   = ["dynamodb:*"]
     resources = ["arn:aws:dynamodb:${var.region}:${local.AWS_USERINFO.AWS_ACCOUNT_ID}:table/purchase_history"]
   }
-  tags = {
-    "Name" = "example"
-  }
 }
 
 # IAM attachment
