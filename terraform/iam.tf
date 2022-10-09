@@ -21,7 +21,7 @@ resource "aws_iam_policy" "iam_policy_dynamodb_purchase_table" {
 data "aws_iam_policy_document" "assume_policy" {
   statement {
     effect  = "Allow"
-    actions = ["sts:Assumerole"]
+    actions = ["sts:AssumeRole"]
     principals {
       type        = "AWS"
       identifiers = ["arn:aws:iam::${local.AWS_USERINFO.AWS_ACCOUNT_ID}:root"]
