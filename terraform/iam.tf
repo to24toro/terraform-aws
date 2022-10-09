@@ -2,7 +2,7 @@
 resource "aws_iam_role" "iam_role_dynamodb_purchase_table" {
   name               = "full_acess_dynamodb_purchase_table"
   description        = "allow purchase table of dynamodb full access"
-  assume_role_policy = data.aws_iam_policy_document.iam_policy_dynamodb_purchase_table
+  assume_role_policy = data.aws_iam_policy_document.iam_policy_dynamodb_purchase_table.json
   tags = {
     "Name" = "example"
   }
