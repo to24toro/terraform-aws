@@ -22,6 +22,10 @@ data "aws_iam_policy_document" "assume_policy" {
   statement {
     effect  = "Allow"
     actions = ["sts:Assumerole"]
+    principals {
+      type       = "AWS"
+      identifiers = local.AWS_USERINFO.AWS_ACCOUNT_ID
+    }
   }
 }
 
