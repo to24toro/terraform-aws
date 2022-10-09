@@ -1,5 +1,5 @@
 locals {
   AWS_INFO = jsondecode(
-    data.aws_secretsmanager_secret_version.AWS_USERINFO.secret_string
+    data.aws_secretsmanager_secret_version.secret_version_aws_userinfo.secret_string
   )
 }
