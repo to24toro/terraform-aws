@@ -6,6 +6,6 @@ resource "aws_lambda_function" "lambda_example" {
   handler   = "handler"
   runtime   = "python3.9"
   timeout   = 150
-  role      = aws_iam_role.iam_role_lambda_example
+  role      = aws_iam_role.iam_role_lambda_example.arn
   #   publish = false lambdaのバージョン管理
 }
