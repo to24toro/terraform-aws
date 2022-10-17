@@ -11,7 +11,7 @@ resource "aws_iam_role" "iam_role_dynamodb_purchase_table" {
 resource "aws_iam_role" "iam_role_lambda_example" {
   name               = "full_access_lambda"
   description        = "allow lambda example full access"
-  assume_role_policy = data.aws_iam_policy_document.assume_policy.json
+  assume_role_policy = data.aws_iam_policy_document.assume_policy_lambda.json
   tags = {
     "Name" = "example"
   }
@@ -40,6 +40,16 @@ data "aws_iam_policy_document" "assume_policy" {
     principals {
       type        = "AWS"
       identifiers = ["arn:aws:iam::${local.AWS_USERINFO.AWS_ACCOUNT_ID}:root"]
+    }
+  }
+}
+
+data "aws_iam_policy_document" "assume_policy_lambda" {
+  statement {
+    effect  = "Allow"
+    actions = ["sts:AssumeRole"]
+    principals {
+      Service = "lambda.amazonaws.com"
     }
   }
 }
