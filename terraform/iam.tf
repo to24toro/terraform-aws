@@ -49,7 +49,7 @@ data "aws_iam_policy_document" "assume_policy_lambda" {
     effect  = "Allow"
     actions = ["sts:AssumeRole"]
     principals {
-      type        = "Serivce"
+      type        = "Service"
       identifiers = ["lambda.amazonaws.com"]
     }
   }
@@ -68,7 +68,7 @@ data "aws_iam_policy_document" "iam_policy_lambda_example" {
   statement {
     effect    = "Allow"
     actions   = ["lambda:*"]
-    resources = ["arn:aws:dynamodb:${var.region}:${local.AWS_USERINFO.AWS_ACCOUNT_ID}:function/lambda_example"]
+    resources = ["arn:aws:lambda:${var.region}:${local.AWS_USERINFO.AWS_ACCOUNT_ID}:function/lambda_example"]
   }
 }
 # IAM attachment
